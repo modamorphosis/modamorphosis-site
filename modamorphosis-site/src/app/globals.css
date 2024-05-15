@@ -31,3 +31,14 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face {
+  font-family: 'Millionaire Roman';
+  src: url('/fonts/Millionaire-Roman.woff2') format('woff2'),
+       url('/fonts/Millionaire-Roman.woff') format('woff'),
+       url('/fonts/Millionaire-Roman.ttf') format('truetype'),
+       url('/fonts/Millionaire-Roman.otf') format('opentype')
+       ;
+  font-weight: normal;
+  font-style: normal;
+}
