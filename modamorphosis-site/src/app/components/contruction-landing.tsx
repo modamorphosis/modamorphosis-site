@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { NearestFilter, TextureLoader, Vector2 } from "three";
+import { NearestFilter, TextureLoader, Vector2, ShaderMaterial } from "three";
 
 const Shader = () => {
   const viewport = useThree((state) => state.viewport);
@@ -14,7 +14,7 @@ const Shader = () => {
 
   const resolution = new Vector2(viewport.width, viewport.height);
 
-  const ref = useRef<THREE.ShaderMaterial>(null);
+  const ref = useRef<ShaderMaterial>(null);
 
   const uniforms = {
     u_texture: { type: "t", value: texture },
@@ -87,7 +87,7 @@ const Shader = () => {
 
   return (
     <mesh scale={[viewport.width * 1.2, viewport.height * 1.2, 1]}>
-      <planeBufferGeometry attach="geometry" />
+      <planeGeometry attach="geometry" />
       <shaderMaterial
         ref={ref}
         uniforms={uniforms}
