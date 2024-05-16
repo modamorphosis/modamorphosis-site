@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { NearestFilter, TextureLoader, Vector2 } from "three";
 
-const FullScreenPlane = () => {
+const FullScreenShader = () => {
   const viewport = useThree((state) => state.viewport);
   const texture = useLoader(TextureLoader, "/img/MM_BG.png");
 
@@ -105,7 +105,7 @@ const ConstructionLanding = () => {
       <Canvas style={{ width: "100vw", height: "100vh" }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 2, 10]} />
-        <FullScreenPlane />
+        <FullScreenShader />
       </Canvas>
     </div>
   );
