@@ -6,13 +6,13 @@ export default function Home() {
       <div className="absolute top-0 left-0">
         <ConstructionLanding />
       </div>
-      <div className="absolute top-0 left-0 flex flex-col justify-center items-center w-full">
+      <div className="absolute top-0 left-0 flex flex-col justify-center items-center w-full h-full">
         <img
           src="/img/logo_color3.png"
           alt="Modamorphosis"
           className="max-h-[75vh] max-w-[80vw]"
         />
-        <h1 className="font-millionaire text-[2.5rem] text-[#fd702e]">
+        <h1 className="font-millionaire text-[1rem] md:text-[2.5rem] text-[#fd702e]">
           COMING SOON
         </h1>
       </div>
