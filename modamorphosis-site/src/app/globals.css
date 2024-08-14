@@ -41,4 +41,17 @@ body {
        ;
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alliance";
+  src: url("/fonts/AllianceNo.2-Light.otf") format('opentype');
+  font-weight: light;
+  font-style:normal;
+  font-display: swap;
+}
+
+body {
+  color: off-white;
 }
