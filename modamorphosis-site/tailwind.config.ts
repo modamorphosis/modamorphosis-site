@@ -15,7 +15,7 @@ const config: Config = {
         "purple-swirl": "url('/img/MM_BG.png')",
       },
       fontFamily: {
-        millionaire: ["MillionaireRoman", "cursive"],
+        millionaire: ["Millionaire Roman", "cursive"],
       },
     },
   },
