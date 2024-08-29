@@ -34,7 +34,7 @@ export function H1Secondary({
 }
 
 export const BodyClasses = [
-  "text-off-white text-[18px]/[100%] tracking-tight font-alliance",
+  "text-off-white text-[14px]/[100%] md:text-[18px]/[100%] tracking-tighter font-alliance",
 ];
 
 export function BodyText({
@@ -66,7 +66,7 @@ export function Subheading({
 }
 
 export const TitleClasses = [
-  "text-off-white text-[0.75rem]/[100%] md:text-[1.5rem]/[100%] tracking-tight font-alliance",
+  "text-off-white text-[1rem]/[100%] md:text-[1.5rem]/[100%] tracking-tight font-alliance",
 ];
 
 export function Title({

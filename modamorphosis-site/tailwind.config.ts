@@ -16,7 +16,7 @@ const config: Config = {
       },
       backgroundImage: {
         "menu-gradient":
-          "linear-gradient(90deg, rgba(25,25,25,1) 32%, rgba(25,25,25,0) 63%)",
+          "linear-gradient(90deg, rgba(25,25,25,1) 45%, rgba(25,25,25,0) 75%)",
         "menu-gradient-mobile":
           "linear-gradient(180deg, rgba(25,25,25,1) 56%, rgba(25,25,25,0) 100%)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
