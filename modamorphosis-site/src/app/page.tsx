@@ -10,6 +10,7 @@ import AboutSection from "./components/about-section";
 import IndexSection from "./components/index-section";
 import JamieBio from "./components/jaimie-bio";
 import BrookeBio from "./components/brooke-bio";
+import VideoSplash from "./components/video-splash";
 
 export default function Home() {
   // srolls nav until fixed in body
@@ -95,13 +96,8 @@ export default function Home() {
 
   return (
     <div>
-      <div
-        id="landingSection"
-        className="flex flex-col justify-center items-center h-screen"
-      >
-        <ThreeDLogo />
-        <ScrollIndicator />
-        <MouseFollower />
+      <div id="landingSection" className="h-screen relative overflow-hidden">
+        <VideoSplash />
       </div>
 
       <div id="bodySection" className="relative">

@@ -64,7 +64,6 @@ body {
 #horizontal-wrapper{
   overflow:hidden;
   height:300vh;
-  border:1px dotted blue;
   position:relative;
 }
 
@@ -84,8 +83,4 @@ body {
   position:absolute;
   top:auto;
   bottom:0;
-}
-
-a {
-  color:#191919;
 }
