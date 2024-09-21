@@ -16,11 +16,11 @@ export default function HomeSection() {
           </Subheading>
         </div>
       </div>
-      <div className="flex-1 flex gap-6 pt-[3.5rem]">
+      <div className="flex-1 flex gap-6 pt-[3.5rem] max-h-[18rem] md:max-h-none overflow-hidden">
         <div className="w-1/2 md:w-[40%]">
           <img
             src="/img/mdmphss-1.png"
-            className="lg:h-full md:w-full h-full object-cover md:h-auto"
+            className="lg:h-full md:w-full object-cover h-full"
           ></img>
         </div>
         <div className="w-1/2 md:w-[30%] h-full">
