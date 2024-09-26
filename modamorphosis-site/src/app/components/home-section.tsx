@@ -7,7 +7,7 @@ export default function HomeSection() {
       <div className="flex-none flex md:justify-between md:h-[28vh]">
         <div className="min-w-fit md:pr-6">
           <H1Main>Reshaping the</H1Main>
-          <H1Secondary className="-mt-2 md:mt-0">future of fashion</H1Secondary>
+          <H1Secondary className="-mt-2">future of fashion</H1Secondary>
         </div>
         <div className="hidden md:block">
           <Subheading>
