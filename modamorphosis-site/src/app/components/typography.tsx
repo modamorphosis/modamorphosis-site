@@ -18,7 +18,7 @@ export function H1Main({
 }
 
 export const H1SecondaryClasses = [
-  "uppercase text-off-white text-[34px]/[110%] md:text-[78px]/[80%] tracking-tighter font-alliance",
+  "uppercase text-off-white text-[34px]/[85%] md:text-[78px]/[80%] tracking-tighter font-alliance",
 ];
 
 export function H1Secondary({
