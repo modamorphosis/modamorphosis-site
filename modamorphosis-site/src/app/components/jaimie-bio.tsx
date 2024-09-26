@@ -4,7 +4,7 @@ import { BodyText, Title } from "./typography";
 export default function JamieBio() {
   return (
     <div>
-      <Title>Jamie QQ Wu</Title>
+      <Title className="text-[1rem] md:text-[1.5rem]">Jamie QQ Wu</Title>
       <br></br>
       <BodyText>
         MODAMORPHOSIS - Co-Founder, Chief Executive Officer <br></br>
