@@ -124,9 +124,9 @@ export default function Home() {
           <div className="inner h-screen md:pl-[16vw]">
             <AboutSection />
           </div>
+          <Footer />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
