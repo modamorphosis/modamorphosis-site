@@ -18,7 +18,7 @@ export function H1Main({
 }
 
 export const H1SecondaryClasses = [
-  "uppercase text-off-white text-[34px]/[110%] md:text-[78px]/[80%] font-alliance",
+  "uppercase text-off-white text-[34px]/[110%] md:text-[78px]/[80%] tracking-tighter font-alliance",
 ];
 
 export function H1Secondary({
@@ -34,7 +34,7 @@ export function H1Secondary({
 }
 
 export const BodyClasses = [
-  "text-off-white text-[14px]/[100%] md:text-[18px]/[100%] tracking-tighter font-alliance",
+  "text-off-white text-[14px]/[120%] md:text-[18px]/[100%] tracking-tight font-alliance",
 ];
 
 export function BodyText({
@@ -50,7 +50,7 @@ export function BodyText({
 }
 
 export const SubheadingClasses = [
-  "uppercase text-off-white text-[1rem]/[110%] md:text-[2rem]/[100%] tracking-tighter font-alliance",
+  "uppercase text-off-white text-[1rem]/[110%] md:text-[1.75rem]/[100%] tracking-tighter font-alliance",
 ];
 
 export function Subheading({
@@ -66,7 +66,7 @@ export function Subheading({
 }
 
 export const TitleClasses = [
-  "text-off-white text-[1rem]/[100%] md:text-[1.5rem]/[100%] tracking-tight font-alliance",
+  "text-off-white text-[0.75rem]/[100%] md:text-[1rem]/[100%] tracking-tight font-alliance",
 ];
 
 export function Title({

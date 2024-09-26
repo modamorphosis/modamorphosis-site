@@ -28,7 +28,6 @@ export default function VideoSplash() {
       </div>
       <div className="flex flex-col justify-center items-center h-full w-full absolute top-0 left-0">
         <ThreeDLogo />
-        <ScrollIndicator />
         <MouseFollower />
       </div>
     </div>

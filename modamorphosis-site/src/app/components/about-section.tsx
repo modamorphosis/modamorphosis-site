@@ -5,17 +5,17 @@ import BrookeBio from "./brooke-bio";
 // md:h-[23vh]
 export default function AboutSection() {
   return (
-    <div className="flex flex-col justify-between h-full md:snap-start md:pr-6 md:pb-6 w-fit">
+    <div className="flex flex-col justify-between h-full md:pt-6 md:pr-6 md:pb-6 w-fit">
       <div className="flex-none flex justify-between h-[5rem] overlow-y-hidden w-fit">
         <div className="min-w-fit pr-6">
           <H1Main>About</H1Main>
         </div>
       </div>
-      <div className="md:h-fit flex flex-col md:flex-row md:gap-6 w-fit overflow-hidden ">
+      <div className="md:h-fit flex flex-col md:flex-row md:gap-6 w-fit overflow-hidden">
         <div className="md:w-[38%] md:min-w-[38rem] overflow-hidden">
           <img src="/img/about-img.png" className="w-full object-cover"></img>
         </div>
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] leading-[110%] pb-[4.5rem] md:pb-0 ">
+        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 pt-4 md:pt-0">
           <BodyText>
             ModaMorphosis, brainchild of Jamie QQ Wu and Brooke Smith, is a
             creative company newly formed in Singapore dedicated to pushing the
@@ -53,7 +53,7 @@ export default function AboutSection() {
         <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 ">
           <JamieBio></JamieBio>
         </div>
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 ">
+        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] md:pb-0">
           <BrookeBio></BrookeBio>
         </div>
       </div>

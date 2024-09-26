@@ -22,7 +22,7 @@ export default function NavMenu(props: NavProps) {
           <MenuLogo />
         </a>
       </div>
-      <div className="flex flex-row md:flex-col gap-6 md:gap-0 pl-6 md:pl-0 w-full">
+      <div className="flex flex-row md:flex-col gap-4 md:gap-0 pl-6 md:pl-0 w-full justify-end">
         <Title className="uppercase md:pt-6 !leading-loose">
           <a href="#about">About</a>
         </Title>

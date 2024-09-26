@@ -11,6 +11,7 @@ import IndexSection from "./components/index-section";
 import JamieBio from "./components/jaimie-bio";
 import BrookeBio from "./components/brooke-bio";
 import VideoSplash from "./components/video-splash";
+import Footer from "./components/footer";
 
 export default function Home() {
   // srolls nav until fixed in body
@@ -110,6 +111,7 @@ export default function Home() {
           <HomeSection />
         </div>
       </div>
+
       <div id="about">
         <div className="block md:hidden w-full pt-[3rem] p-6">
           <AboutSection />
@@ -119,11 +121,12 @@ export default function Home() {
           ref={horizontalWrapperRef}
           className="hidden md:block"
         >
-          <div className="inner h-screen pt-6 pl-[16vw]">
+          <div className="inner h-screen md:pl-[16vw]">
             <AboutSection />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
