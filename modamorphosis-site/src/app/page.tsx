@@ -126,6 +126,9 @@ export default function Home() {
           </div>
           <Footer />
         </div>
+        <div className="block md:hidden">
+          <Footer />
+        </div>
       </div>
     </div>
   );
