@@ -12,17 +12,24 @@ import JamieBio from "./components/jaimie-bio";
 import BrookeBio from "./components/brooke-bio";
 import VideoSplash from "./components/video-splash";
 import Footer from "./components/footer";
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
-  // srolls nav until fixed in body
   const [isFixed, setIsFixed] = useState(false);
+  const [isFixedFooter, setIsFixedFooter] = useState(false);
+
   const handleFixedNav = () => {
     const bodySection = document.getElementById("bodySection");
     if (bodySection) {
       const stickyStart = bodySection.offsetTop;
       setIsFixed(window.scrollY >= stickyStart);
+      setIsFixedFooter(window.scrollY >= stickyStart);
     }
   };
+
+  const { ref: aboutRef, inView: mainInView } = useInView({
+    threshold: 0.2,
+  });
 
   // scroll to bodySection on first click
   const handleLandingClick = (event: MouseEvent) => {
@@ -108,34 +115,36 @@ export default function Home() {
       </div>
 
       <div id="bodySection" className="relative">
+        <div className="hidden md:block">
+          <Footer isFixed={isFixedFooter} hidden={mainInView} />
+        </div>
         <NavMenu isFixed={isFixed} />
-
         <div
           id="home"
-          className="w-full md:h-screen pt-[16vh] md:pt-6 md:pl-[16vw] p-6"
+          className="w-full md:h-screen pt-[16vh] md:py-6 md:pl-[16vw] p-6"
         >
           <HomeSection />
         </div>
       </div>
 
-      <div id="about">
+      <div id="about" ref={aboutRef}>
         {/* mobile */}
-        <div className="block md:hidden w-full pt-[3rem] p-6">
+        <div className="block md:hidden w-full pt-[16vh] p-6">
           <AboutSection />
         </div>
-        {/* desktop */}
+        {/* mobile footer */}
+        <div className="block md:hidden">
+          <Footer isFixed={isFixedFooter} />
+        </div>
         <div
           id="horizontal-wrapper"
           ref={horizontalWrapperRef}
           className="hidden md:block"
         >
           <div className="inner h-screen md:pl-[16vw]">
+            {/* desktop */}
             <AboutSection />
           </div>
-          <Footer />
-        </div>
-        <div className="block md:hidden">
-          <Footer />
         </div>
       </div>
     </div>

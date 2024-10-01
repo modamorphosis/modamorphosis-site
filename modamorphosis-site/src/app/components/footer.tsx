@@ -1,8 +1,21 @@
+import { cn } from "@/utils/cn";
 import React from "react";
 
-export default function Footer() {
+type FooterProps = {
+  isFixed: boolean;
+  hidden?: boolean;
+};
+
+export default function Footer(props: FooterProps) {
+  const { isFixed = [], hidden = [] } = props;
   return (
-    <footer className="md:absolute md:bottom-0 md:right-0 w-full flex justify-between md:pl-[16vw] text-[0.75rem] uppercase font-alliance px-6 py-4 md:pr-[16vw]">
+    <footer
+      className={cn(
+        "md:bottom-0 md:pl-[16vw] w-full flex justify-between text-[0.75rem]",
+        "uppercase font-alliance px-6 py-4 md:pr-[16vw]",
+        hidden ? (isFixed ? "md:fixed" : "md:absolute") : "hidden"
+      )}
+    >
       <p>&copy;{new Date().getFullYear()} Modamorphosis</p>
       <div className="flex gap-3 underline">
         <p>

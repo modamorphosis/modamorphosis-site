@@ -3,7 +3,7 @@ import { BodyText, H1Main, H1Secondary, Subheading } from "./typography";
 
 export default function HomeSection() {
   return (
-    <div className="flex flex-col h-full md:overflow-hidden ">
+    <div className="flex flex-col h-full md:overflow-hidden">
       <div className="flex-none flex md:justify-between md:h-[28vh]">
         <div className="min-w-fit md:pr-6">
           <H1Main>Reshaping the</H1Main>
@@ -57,7 +57,10 @@ export default function HomeSection() {
           events through visionary artistic collaborations
         </div>
         <div className="w-1/2">
-          <img src="/img/mdmphss-4.png" className="w-full object-cover "></img>
+          <img
+            src="/img/mdmphss-4.png"
+            className="w-full object-cover object-center"
+          ></img>
         </div>
       </div>
     </div>

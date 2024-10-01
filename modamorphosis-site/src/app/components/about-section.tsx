@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { BodyText, H1Main } from "./typography";
 import JamieBio from "./jaimie-bio";
 import BrookeBio from "./brooke-bio";
 
 export default function AboutSection() {
   return (
-    <div className="flex flex-col justify-between h-full md:pt-6 md:pr-6 md:pb-12 w-fit">
+    <div className="flex flex-col justify-between h-full md:pt-6 md:pr-6 md:pb-12 w-fit relative">
       <div className="flex-none flex justify-between h-[5rem] overlow-y-hidden w-fit">
         <div className="min-w-fit pr-6">
           <H1Main>About</H1Main>
