@@ -61,37 +61,43 @@ export default function Home() {
       horizontalWrapper.classList.remove("pre-sticky", "sticky", "post-sticky");
 
       const offsetTop = horizontalWrapper.offsetTop;
-      const offsetHeight = horizontalWrapper.offsetHeight;
-      const windowHeight = window.innerHeight;
+      const innerElement =
+        horizontalWrapper.querySelector<HTMLElement>(".inner");
+      if (!innerElement) return;
 
-      if (windowScroll >= offsetTop + offsetHeight - windowHeight) {
+      const contentWidth = innerElement.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      const scrollDistance = contentWidth - viewportWidth;
+
+      // Update the wrapper height dynamically
+      horizontalWrapper.style.height = `${
+        scrollDistance + window.innerHeight
+      }px`;
+
+      if (windowScroll >= offsetTop + scrollDistance) {
         horizontalWrapper.classList.add("post-sticky");
-        console.log("after");
+        innerElement.style.transform = `translateX(-${scrollDistance}px)`;
       } else if (windowScroll >= offsetTop) {
         horizontalWrapper.classList.add("sticky");
-        const start = windowScroll - offsetTop;
-        const end = offsetTop + offsetHeight - windowHeight;
-        const pct = (start / end) * 100;
-        const innerElement =
-          horizontalWrapper.querySelector<HTMLElement>(".inner");
-        if (innerElement) {
-          innerElement.style.transform = `translateX(-${pct}%)`;
-        }
+        const scrollPercentage = (windowScroll - offsetTop) / scrollDistance;
+        const translateX = scrollPercentage * scrollDistance;
+        innerElement.style.transform = `translateX(-${translateX}px)`;
       } else {
         horizontalWrapper.classList.add("pre-sticky");
-        const defaultInnerElement =
-          horizontalWrapper.querySelector<HTMLElement>(".inner");
-        if (defaultInnerElement) {
-          defaultInnerElement.style.transform = "translateX(0)";
-        }
+        innerElement.style.transform = "translateX(0)";
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
 
-    // Cleanup the event listener on component unmount
+    // Initial call to set correct height
+    handleScroll();
+
+    // Cleanup the event listeners on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -113,9 +119,11 @@ export default function Home() {
       </div>
 
       <div id="about">
+        {/* mobile */}
         <div className="block md:hidden w-full pt-[3rem] p-6">
           <AboutSection />
         </div>
+        {/* desktop */}
         <div
           id="horizontal-wrapper"
           ref={horizontalWrapperRef}

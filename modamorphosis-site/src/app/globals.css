@@ -61,9 +61,9 @@ body {
 	scroll-snap-stop: always;
 }
 
-#horizontal-wrapper{
+/* #horizontal-wrapper{
   overflow:hidden;
-  height:128rem;
+  height: 300rem;
   position:relative;
 }
 
@@ -85,4 +85,31 @@ body {
   top:auto;
   bottom:0;
   border: 2 solid red;
+} */
+
+/* ai solution */
+#horizontal-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+#horizontal-wrapper .inner {
+  width: fit-content;
+  height: 100vh;
+  display: flex;
+}
+
+#horizontal-wrapper.sticky .inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+}
+
+#horizontal-wrapper.post-sticky .inner {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: fit-content;
 }
