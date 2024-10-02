@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,13 +18,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
+  color: #f4f4f4;
+  background: #191919;
+  
 }
 
 @layer utilities {
@@ -41,4 +39,77 @@ body {
        ;
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alliance";
+  src: url("/fonts/AllianceNo.2-Light.otf") format('opentype');
+  font-weight: light;
+  font-style:normal;
+  font-display: swap;
+}
+
+.snap-wrapper {
+  overflow: hidden;
+  scroll-snap-type: y mandatory; 
+  /* height: 100vh; */
+}
+
+.snap-child {
+  scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+/* #horizontal-wrapper{
+  overflow:hidden;
+  height: 300rem;
+  position:relative;
+}
+
+#horizontal-wrapper .inner {
+  width:fit;
+  height:100vh;
+  max-width: fit-content;
+}
+
+#horizontal-wrapper.sticky .inner{
+  position:fixed;
+  top:0;
+  bottom:auto;
+  border: 2 solid green;
+}
+
+#horizontal-wrapper.post-sticky .inner{
+  position:absolute;
+  top:auto;
+  bottom:0;
+  border: 2 solid red;
+} */
+
+/* ai solution */
+#horizontal-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+#horizontal-wrapper .inner {
+  width: fit-content;
+  height: 100vh;
+  display: flex;
+}
+
+#horizontal-wrapper.sticky .inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+}
+
+#horizontal-wrapper.post-sticky .inner {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: fit-content;
 }
