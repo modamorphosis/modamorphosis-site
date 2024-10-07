@@ -11,7 +11,7 @@ export default function Footer(props: FooterProps) {
   return (
     <footer
       className={cn(
-        "md:bottom-0 md:pl-[16vw] w-full flex justify-between text-[0.75rem]",
+        "md:bottom-0 md:pl-[16vw] w-full flex justify-between text-[0.75rem] z-50",
         "uppercase font-alliance px-6 py-4 md:pr-[16vw]",
         hidden ? (isFixed ? "md:fixed" : "md:absolute") : "hidden"
       )}
@@ -19,10 +19,14 @@ export default function Footer(props: FooterProps) {
       <p>&copy;{new Date().getFullYear()} Modamorphosis</p>
       <div className="flex gap-3 underline">
         <p>
-          <a href="mailto:info@modamorphosis.com">Contact</a>
+          <a href="mailto:info@modamorphosis.com" target="_blank">
+            Contact
+          </a>
         </p>
         <p>
-          <a href="https://www.instagram.com/moda_morphosis/">Instagram</a>
+          <a href="https://www.instagram.com/moda_morphosis/" target="_blank">
+            Instagram
+          </a>
         </p>
       </div>
     </footer>
