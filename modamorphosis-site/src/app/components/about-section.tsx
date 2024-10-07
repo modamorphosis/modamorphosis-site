@@ -1,9 +1,48 @@
-import React, { useEffect, useRef } from "react";
-import { BodyText, H1Main } from "./typography";
-import JamieBio from "./jaimie-bio";
-import BrookeBio from "./brooke-bio";
+import React, { useEffect, useRef, useState } from "react";
+import { BodyText, H1Main, Title } from "./typography";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/sanity/lib/client";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+type Person = {
+  name: string;
+  title1: string;
+  title2: string;
+  quote: string;
+  bio: string;
+  image: { asset: { url: string } };
+};
 
 export default function AboutSection() {
+  const [aboutData, setAboutData] = useState<Person[]>([]);
+
+  useEffect(() => {
+    client
+      .fetch(
+        `
+          *[_type == "aboutPage"] {
+              person {
+                name,
+                title1,
+                title2,
+                quote,
+                bio,
+                image
+              }
+            }
+          `
+      )
+      .then((data) => setAboutData(data.map((item: any) => item.person))) // Extracting person objects
+      .catch((error) =>
+        console.error("Error fetching about page data:", error)
+      );
+  }, []);
+
   return (
     <div className="flex flex-col justify-between h-full md:pt-6 md:pr-6 md:pb-12 w-fit relative">
       <div className="flex-none flex justify-between h-[5rem] overlow-y-hidden w-fit">
@@ -56,29 +95,48 @@ export default function AboutSection() {
             </a>
           </BodyText>
         </div>
-        {/* jamie bio */}
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
-          <img
-            src="/img/Jamie.jpeg"
-            alt="Jamie QQ Wu portrait"
-            className="w-full h-auto max-h-full object-cover object-top"
-          />
-        </div>
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 pt-4">
-          <JamieBio></JamieBio>
-        </div>
-        {/* brooke bio */}
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
-          <img
-            src="/img/Brooke.jpg"
-            alt="Brooke Smith portrait"
-            className="w-full h-auto max-h-full object-cover object-top"
-          />
-        </div>
-        <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] md:pb-0 pt-4">
-          <BrookeBio></BrookeBio>
-        </div>
+        {aboutData.map((person: Person, index: number) => (
+          <div key={index} className="flex flex-col md:flex-row md:gap-8">
+            <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
+              <img
+                src={urlFor(person.image).url()}
+                alt={`${person.title1} portrait`}
+                className="w-full h-auto max-h-full object-cover object-top"
+              />
+            </div>
+            <div
+              className={`md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] md:pb-0 pt-4 ${index === 0 ? `pb-[4.5rem]` : ``}`}
+            >
+              <Title className="text-[1rem] md:text-[1.5rem]">
+                {person.name}
+              </Title>
+              <br></br>
+              <BodyText>
+                {person.title1}
+                <br></br>
+                {person.title2}
+              </BodyText>
+              <br></br>
+              <BodyText className="leading-[110%]">{person.quote}</BodyText>
+              <br></br>
+              <BodyText className="leading-[110%]">{person.bio}</BodyText>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
+}
+
+// <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
+{
+  /* <img
+src="/img/Jamie.jpeg"
+alt="Jamie QQ Wu portrait"
+className="w-full h-auto max-h-full object-cover object-top"
+/>
+</div>
+<div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 pt-4">
+<JamieBio></JamieBio>
+</div> */
 }
