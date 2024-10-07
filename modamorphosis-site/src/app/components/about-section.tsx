@@ -43,7 +43,6 @@ export default function AboutSection() {
       );
   }, []);
 
-  console.log(aboutData);
   return (
     <div className="flex flex-col justify-between h-full md:pt-6 md:pr-6 md:pb-12 w-fit relative">
       <div className="flex-none flex justify-between h-[5rem] overlow-y-hidden w-fit">
@@ -96,18 +95,18 @@ export default function AboutSection() {
             </a>
           </BodyText>
         </div>
-
         {aboutData.map((person: Person, index: number) => (
-          <div
-            key={index}
-            className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden"
-          >
-            <img
-              src={urlFor(person.image).url()}
-              alt={`${person.title1} portrait`}
-              className="w-full h-auto max-h-full object-cover object-top"
-            />
-            <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 pt-4">
+          <div key={index} className="flex flex-col md:flex-row md:gap-8">
+            <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
+              <img
+                src={urlFor(person.image).url()}
+                alt={`${person.title1} portrait`}
+                className="w-full h-auto max-h-full object-cover object-top"
+              />
+            </div>
+            <div
+              className={`md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] md:pb-0 pt-4 ${index === 0 ? `pb-[4.5rem]` : ``}`}
+            >
               <Title className="text-[1rem] md:text-[1.5rem]">
                 {person.name}
               </Title>
@@ -127,4 +126,17 @@ export default function AboutSection() {
       </div>
     </div>
   );
+}
+
+// <div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] overflow-hidden">
+{
+  /* <img
+src="/img/Jamie.jpeg"
+alt="Jamie QQ Wu portrait"
+className="w-full h-auto max-h-full object-cover object-top"
+/>
+</div>
+<div className="md:w-[32%] md:min-w-[35rem] md:max-w-[36vw] pb-[4.5rem] md:pb-0 pt-4">
+<JamieBio></JamieBio>
+</div> */
 }
