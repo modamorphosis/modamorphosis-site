@@ -206,6 +206,11 @@
 
     .nav-links a {
       text-transform: uppercase;
+      line-height: 2;
+    }
+
+    .nav-links a:first-child {
+      padding-top: 0;
     }
 
     /* Desktop logo in nav */
@@ -225,7 +230,8 @@
         padding-left: 0;
         justify-content: flex-start;
       }
-      .nav-links a { line-height: 2.5; }
+      .nav-links a { line-height: 2; }
+      .nav-links a:first-child { padding-top: 1.5rem; }
       .nav-logo-desktop { display: block; }
       .nav-logo-mobile { display: none; }
     }
@@ -234,11 +240,14 @@
     #home {
       width: 100%;
       padding: 16vh 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
 
     .home-header {
       display: flex;
       flex-direction: column;
+      flex: none;
     }
 
     .home-header .subheading-desktop { display: none; }
@@ -249,6 +258,7 @@
       padding-top: 3.5rem;
       max-height: 18rem;
       overflow: hidden;
+      flex: 1;
     }
 
     .home-images .img-col-1 { width: 50%; }
@@ -278,6 +288,7 @@
       #home {
         height: 100vh;
         padding: 1.5rem 1.5rem 1.5rem 16vw;
+        overflow: hidden;
       }
       .home-header {
         flex-direction: row;
@@ -321,8 +332,10 @@
       font-family: 'Alliance', sans-serif;
       padding: 1rem 1.5rem;
       z-index: 50;
+      color: var(--off-white);
     }
 
+    footer p, footer a { font-size: 0.75rem; }
     footer .links { display: flex; gap: 0.75rem; }
     footer .links a { text-decoration: underline; }
     footer .links a:hover { text-decoration: none; }
@@ -339,7 +352,7 @@
     .footer-desktop.absolute-footer { position: absolute; bottom: 0; }
 
     @media (min-width: 768px) {
-      .footer-desktop { padding-left: 16vw; padding-right: 16vw; bottom: 0; }
+      .footer-desktop { padding: 1rem 1.5rem; padding-left: 16vw; padding-right: 16vw; bottom: 0; }
       .footer-mobile { display: none; }
     }
 
