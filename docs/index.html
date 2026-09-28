@@ -336,10 +336,10 @@
     }
 
     .footer-desktop.fixed-footer { position: fixed; bottom: 0; }
-    .footer-desktop.absolute-footer { position: absolute; }
+    .footer-desktop.absolute-footer { position: absolute; bottom: 0; }
 
     @media (min-width: 768px) {
-      .footer-desktop { padding-left: 16vw; padding-right: 16vw; }
+      .footer-desktop { padding-left: 16vw; padding-right: 16vw; bottom: 0; }
       .footer-mobile { display: none; }
     }
 
@@ -700,21 +700,23 @@
       navMenu.classList.toggle('fixed', isFixed);
       navMenu.classList.toggle('absolute', !isFixed);
 
-      // Desktop footer visibility
+      // Desktop footer visibility — show when about section is in view
       var aboutSection = document.getElementById('about');
       var aboutRect = aboutSection.getBoundingClientRect();
       var mainInView = aboutRect.top < window.innerHeight * 0.8 && aboutRect.bottom > 0;
 
-      if (!mainInView) {
+      if (mainInView) {
         desktopFooter.classList.add('visible');
         desktopFooter.classList.toggle('fixed-footer', isFixed);
         desktopFooter.classList.toggle('absolute-footer', !isFixed);
       } else {
         desktopFooter.classList.remove('visible');
+        desktopFooter.classList.remove('fixed-footer', 'absolute-footer');
       }
     }
 
     window.addEventListener('scroll', handleFixedNav);
+    handleFixedNav();
 
     // Horizontal scroll (desktop about)
     var horizontalWrapper = document.getElementById('horizontal-wrapper');
